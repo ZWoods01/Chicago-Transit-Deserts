@@ -1,0 +1,65 @@
+---
+title: "Chicago Transit Deserts - Summary"
+author: "Zack Woods"
+date: "5/8/2022"
+output: html_document
+---
+
+## Environment Setup 
+
+```{r}
+setwd("~/Desktop/chiTransitDesertsProj")
+library(sf)
+library(tmap)
+library(dplyr)
+```
+
+## Load datasets
+
+> Chicago census tracts, bus & train routes/stops, street networks, bike routes, sidewalks
+
+```{r}
+chiTracts <- read_sf("tracts_26971.shp")
+railLines <- read_sf("railLines/CTA_RailLines.shp")
+busLines <- read_sf("busRoutes/CTA_BusRoutes.shp")
+bikeRoutes <- read_sf("bikeRoutes/geo_export_d5b2a8a7-f33d-4a3b-ac07-ec016dc1088b.shp")
+busStops <- read_sf("busStops/CTA_BusStops.shp")
+railStops <- read_sf("railStops/CTA_RailStations.shp")
+bikeRoutes <- read_sf("bikeRoutes/geo_export_d5b2a8a7-f33d-4a3b-ac07-ec016dc1088b.shp")
+chiRoads <- read_sf("chiRoads/geo_export_6c7ad2b5-cc81-4e18-a45b-471d70ced40f.shp")
+il_bounds <- read_sf("IL_BNDY_State/IL_BNDY_State_Ln.shp")
+```
+
+## Map variables
+
+> Overlay each route/variable on a map of Chicago - bus routes, train routes, bus stops, train stops, roads, bike routes, sidewalks
+
+
+```{r}
+tm_shape(chiTracts) + tm_fill() + tm_borders()
+tm_shape(chiTracts) + tm_fill() + tm_shape(railLines) + tm_lines()
+tm_shape(chiTracts) + tm_fill() + tm_shape(busLines) + tm_lines()
+tm_shape(chiTracts) + tm_fill() + tm_shape(bikeRoutes) + tm_lines()
+tm_shape(chiTracts) + tm_fill() + tm_shape(chiRoads) + tm_lines()
+tm_shape(chiTracts) + tm_fill() + tm_shape(busStops) + tm_dots()
+tm_shape(chiTracts) + tm_fill() + tm_shape(railStops) + tm_dots()
+```
+
+## Create choropleth maps of each variable
+
+>Variables of interest: # of transit stops, service frequency, # of transit routes, sidewalk length, bike route length, intersection density
+
+```{r}
+tm_shape(chiTracts) + tm_fill("bikeLength", style = "jenks", palette = "BuPu", legend.hist = TRUE) + tm_borders(alpha = 0.05) + tm_layout(legend.outside = TRUE)
+tm_shape(chiTracts) + tm_fill("numRoutes", style = "jenks", palette = "BuPu", legend.hist = TRUE) + tm_borders(alpha = 0.05) + tm_layout(legend.outside = TRUE)
+tm_shape(chiTracts) + tm_fill("roadLength", style = "jenks", palette = "BuPu", legend.hist = TRUE) + tm_borders(alpha = 0.05) + tm_layout(legend.outside = TRUE)
+tm_shape(chiTracts) + tm_fill("transitSto", style = "jenks", palette = "BuPu", legend.hist = TRUE) + tm_borders(alpha = 0.05) + tm_layout(legend.outside = TRUE)
+
+```
+
+## Cluster analysis
+
+```{r}
+
+```
+

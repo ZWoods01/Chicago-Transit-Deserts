@@ -1,0 +1,24 @@
+# Data sources & definitions:
+All data used to create the dashboard is available online free of charge. Sources include OpenStreetMap, the ACS and decennial census, CTA, and the Chicago Data Portal. Specific sourcing information is available below. URLs to download links are also provided.
+
+1 - Household drivers = (population age 16 +) - (populations living in group quarters)
+Source:
+2 - Transit independent household population = (household drivers) - ((vehicles available) * (national level car-pooling ratio))
+Source:
+3 - Transit dependent household population = (transit independent household population) + (population age 12-15) + (non-institutionalized populations living in group quarters)
+Source:
+4 - Number of transit stops = count of bus + rail stops
+Source:
+5 - Service frequency = ….
+Source:
+6 - Number of transit routes = count of bus + rail routes
+Source:
+7 - Total sidewalk length = sum of the lengths of all sidewalks
+Source:
+8 - Total bike route length = sum of the lengths of all bike routes
+Source:
+9 - Total road length = sum of the lengths of all roads
+Source:
+
+# Methodology
+All data was aggregated to the census tract level within the city of Chicago. The raw data, as well as the final, cleaned data table used, are provided under the “Downloads” tab. Many spatial variables were calculated in R before being added into the final dataset.

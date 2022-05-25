@@ -1,0 +1,17 @@
+# What can this app do?
+This R-shiny based web application provides a current look at the transit gap within the city of Chicago and combines various transit, demographic, and temporal measures to identify transit deserts.
+
+# Getting started
+In the menu, there are several categories of demographic and transit data. Explore these tabs to see how different metrics shed light on the transit gap in Chicago.
+
+# More information
+For further information about the project objectives, overview, team, and data access, visit the About tab under Home.
+
+# Open source and open science
+This project emphasizes open source code and open science data practices. To explore the code and data, visit the links below: LINKS
+
+# Overview
+This R Shiny app was developed to interactively identify transit deserts in Chicago. Transit deserts are areas where the transit demand is much greater than the transit supply. The web app includes metrics to identify transit-dependent populations (transit demand) as well as measures of transit access (transit supply). The transit gap is calculated for each census tract, and transit deserts are identified as those tracts with relatively higher gaps.
+
+# Objective
+The objective of this web application is to provide an interactive environment to explore transit gaps and transit deserts within the city of Chicago at the census tract level. 
